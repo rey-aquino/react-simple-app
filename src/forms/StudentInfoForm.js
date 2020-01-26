@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-const AddUserForm = props => {
-  const initialFormState = { 
+const StudentInfoForm = props => {
+  const initialFormState = {
                              id: null,
                            name: '', 
                             age: '', 
@@ -66,9 +66,9 @@ const AddUserForm = props => {
           <input class="form-control" type="text" name="duration" value={user.duration} onChange={handleInputChange} required/>
         </div>
       </div>
-      <button>Add Student</button>
+      <button class="btn btn-primary">Add Student</button>
     </form>
   )
 }
 
-export default AddUserForm
+export default StudentInfoForm

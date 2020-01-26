@@ -1,25 +1,27 @@
 import React from 'react'
               //define props
 const UserTable = props => (
-  <table>
-    <thead>
-      <tr>
-        <th>I.D</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Address</th>
-        <th>Class Type</th>
-        <th>Date Start</th>
-        <th>Name of Class</th>
-        <th>Location</th>
-        <th>Week Day</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-        <th>Duration</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
+
+
+<table class="table table-dark table-responsive">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+    <th scope="col">Address</th>
+    <th scope="col">Class Type</th>
+    <th scope="col">Date Start</th>
+    <th scope="col">Name of Class</th>
+    <th scope="col">Location</th>
+    <th scope="col">Week Day</th>
+    <th scope="col">Start Time</th>
+    <th scope="col">End Time</th>
+    <th scope="col">Duration</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
       {props.users.length > 0 ? (
         props.users.map(varname => (
           <tr key={varname.id}>
@@ -36,8 +38,8 @@ const UserTable = props => (
             <td>{varname.endTime}</td>
             <td>{varname.duration}</td>
             <td>
-              <button className="button muted-button">Edit</button>
-              <button className="button muted-button">Delete</button>
+              <button class="btn btn-sm btn-success">Present</button>
+              <button class="btn btn-sm btn-danger">Absent</button>
             </td>
           </tr>
         ))
@@ -48,7 +50,11 @@ const UserTable = props => (
         </tr>
       )}
     </tbody>
-  </table>
+</table>
+
+
+
+
 )
 
 export default UserTable

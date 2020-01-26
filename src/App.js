@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import UserTable from './tables/UserTable'
-import AddUserForm from './forms/AddUserForm'
+import StudentInfoForm from './forms/StudentInfoForm'
 
 const App = () => {
   
@@ -23,7 +23,7 @@ const App = () => {
           <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Add Student</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Calendar and Attendance</a>
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Calendar & Attendance</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Screen Report</a>
@@ -33,18 +33,18 @@ const App = () => {
         {/* Add Student */}
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
   
-            <div className="flex-row">
-              <div className="flex-large">
-                <AddUserForm addUser={addUser} />
+            <div class="flex-row">
+              <div class="flex-large">
+                <StudentInfoForm addUser={addUser} />
               </div>
             </div>
         
         </div>
         {/* Calendar and Attendance */}
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          Calendar and Attendance
+          <h3>Calendar & Attendance Table</h3>
 
-            <div className="flex-large">
+            <div class="flex-large">
               <UserTable users={users} />
             </div>
           </div>
