@@ -1,19 +1,46 @@
 import React, { useState } from 'react'
-import UserTable from './tables/UserTable'
+import StudentsTable from './tables/StudentsTable'
 import StudentInfoForm from './forms/StudentInfoForm'
+import ScreenReportTable from './tables/ScreenReportTable'
 
 const App = () => {
   
-  const usersData = [];
+  const usersData = [
+          { 
+                  id: 1, 
+                name: 'Rey Aquino', 
+                 age: 22, 
+             address: 'Tacloban City', 
+           classType: 'Sample Class Type',
+           dateStart: '2020-01-27',
 
-    //Insert Arrays for Sample data
-    // { id: 1, name: 'Rey Aquino', age: 22, address: 'Tacloban City', classType: 'Sample Class Type' },
+           className: 'Capstone Project II',
+            location: 'CompLab 7',
+             weekDay: 'TFri',
+           startTime: '1:00 PM',
+             endTime: '2:30 PM',
+            duration: '1:30',
+          },
+  ];
+
+  //Filter
+  
+
+  //Filter
 
   const [users, setUsers] = useState(usersData)
 
+  
+
+  //take user object as a parameter and add to the users array of objects.
   const addUser = user => {
     user.id = users.length + 1
     setUsers([...users, user])
+  }
+
+  //Delete method
+  const deleteUser = id => {
+    setUsers(users.filter(user => user.id !== id))
   }
 
   return (
@@ -32,29 +59,23 @@ const App = () => {
       <div class="tab-content" id="pills-tabContent">
         {/* Add Student */}
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-  
-            <div class="flex-row">
-              <div class="flex-large">
-                <StudentInfoForm addUser={addUser} />
-              </div>
-            </div>
+            <StudentInfoForm addUser={addUser} />
         
         </div>
         {/* Calendar and Attendance */}
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <h3>Calendar & Attendance Table</h3>
-
-            <div class="flex-large">
-              <UserTable users={users} />
-            </div>
-          </div>
+          <h3> Attendance Table</h3>
+            <StudentsTable users={users} deleteUser={deleteUser} />
+          <h3>Calendar</h3>
+        </div>
         {/* Screen Report */}
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-          This is for Screen Report
+          <h3>Screen Report</h3>
+          <input type="text" placeholder="Search"/>
+          <ScreenReportTable users={users} deleteUser={deleteUser} />
         </div>
       </div>
     </div>
-
 
   )
 }
